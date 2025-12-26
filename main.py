@@ -189,7 +189,6 @@ class LinuxDoBrowser:
             return True
 
     def click_topic(self):
-        self.page.run_js(f"window.scrollBy(0, 3000)")
         topic_list = self.page.ele("@id=list-area").eles(".:title")
         if not topic_list:
             logger.error("未找到主题帖")
