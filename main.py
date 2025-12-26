@@ -200,7 +200,7 @@ class LinuxDoBrowser:
         if not topic_list:
             logger.error("未找到主题帖")
             return False
-        logger.info(f"发现 {len(topic_list)} 个主题帖，随机选择{len(topic_list)}个")
+        logger.info(f"发现 {len(topic_list)} 个主题帖，选择{len(topic_list)}个")
         for topic in random.sample(topic_list, len(topic_list)):
             self.click_one_topic(topic.attr("href"))
         return True
@@ -223,10 +223,6 @@ class LinuxDoBrowser:
             logger.info(f"向下滚动 {scroll_distance} 像素...")
             page.run_js(f"window.scrollBy(0, {scroll_distance})")
             logger.info(f"已加载页面: {page.url}")
-            # 动态随机等待
-            wait_time1 = random.uniform(3, 5)  # 随机等待 3-5 秒
-            logger.info(f"等待 {wait_time1:.2f} 秒...")
-            time.sleep(wait_time1)
 
             if random.random() < 0.03:  # 33 * 4 = 132
                 logger.success("随机退出浏览")
