@@ -200,8 +200,8 @@ class LinuxDoBrowser:
         if not topic_list:
             logger.error("未找到主题帖")
             return False
-        logger.info(f"发现 {len(topic_list)} 个主题帖，随机选择60个")
-        for topic in random.sample(topic_list, 60):
+        logger.info(f"发现 {len(topic_list)} 个主题帖，随机选择50个")
+        for topic in random.sample(topic_list, 50):
             self.click_one_topic(topic.attr("href"))
         return True
 
@@ -240,7 +240,7 @@ class LinuxDoBrowser:
                 break
 
             # 动态随机等待
-            wait_time = random.uniform(6, 8)  # 随机等待 6-8 秒
+            wait_time = random.uniform(5, 7)  # 随机等待 6-8 秒
             logger.info(f"等待 {wait_time:.2f} 秒...")
             time.sleep(wait_time)
 
