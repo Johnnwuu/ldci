@@ -189,6 +189,13 @@ class LinuxDoBrowser:
             return True
 
     def click_topic(self):
+        logger.info("正在加载更多主题...")
+        # 滚动到底部
+        self.page.scroll.to_bottom()
+        time.sleep(2)
+        # 再滚一次确保触发
+        self.page.scroll.to_bottom()
+        time.sleep(2)
         topic_list = self.page.ele("@id=list-area").eles(".:title")
         if not topic_list:
             logger.error("未找到主题帖")
